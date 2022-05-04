@@ -1,0 +1,83 @@
+* {
+    box-sizing: border-box;
+}
+.headerDiv{
+    background-color: #595260;
+    height: 100px;
+    display: flex;
+    align-items: center;
+}
+.btn-group, .btn{
+    margin-left: 15px;
+}
+#textEditor{
+    display: none;
+}
+#styleEditor{
+    display: block;
+}
+
+#textEditorArea, #styleEditorArea{
+    margin: 20px;
+    padding: 30px;
+}
+
+#tableModalBody{
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+#tableModalForm{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+#tableModalForm > div{
+    margin-right: 10px;
+}
+
+
+#tableDropDowns{
+    display: flex;
+    justify-content: space-around;
+}
+#tableDropDowns > div{
+    margin-right: 10px;
+}
+
+#loginForm{
+    display: flex;
+    flex-direction: column;
+}
+
+#loginForm > * {
+    width: 100%;
+    align-items: center;
+}
+
+.oneColor, .oneBgColor {
+    width: 55px;
+    height: 60px;
+    margin: 5px;
+    border-radius: 10%;
+}
+
+#textColorBlock {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.oneBgImage{
+    width: 200px;
+    height: 100px;
+    margin: 5px;
+    border-radius: 10%;
+}
+#bgColorBlock, #bgImageBlock{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+

@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        
+    <title>Text editor 2.0</title>
+</head>
+<body>
+
+<div id="styleEditor"> 
+    <div class="headerDiv">
+        <button type="button" class="btn btn-light" id="switchTabsBtn"><i class="fas fa-sync-alt"> </i></button>
+
+        <div class="btn-group" role="group" >
+            <input type="checkbox" class="btn-check" id="btncheck1" autocomplete="off">
+                <label class="btn btn-outline-light" for="btncheck1"><i class="fas fa-bold"></i></label>
+              
+            <input type="checkbox" class="btn-check" id="btncheck2" autocomplete="off">
+                <label class="btn btn-outline-light" for="btncheck2"><i class="fas fa-italic"></i></label>
+              
+            <input type="checkbox" class="btn-check" id="btncheck3" autocomplete="off">
+                <label class="btn btn-outline-light" for="btncheck3"><i class="fas fa-underline"></i></label>
+
+            <input type="checkbox" class="btn-check" id="btncheck4" autocomplete="off">
+                <label class="btn btn-outline-light" for="btncheck4"><i class="fas fa-strikethrough"></i></label>
+
+        </div>
+
+        <div class="btn-group" role="group">
+            <button type="button" class="btn btn-light" id="alignLeftBtn"><i class="fas fa-align-left"></i></button>
+            <button type="button" class="btn btn-light" id="alignCenterBtn"><i class="fas fa-align-center"></i></button>
+            <button type="button" class="btn btn-light" id="alignRightBtn"><i class="fas fa-align-right"></i></button>
+        </div>
+
+        <div class="dropdown">
+          <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fas fa-font"></i>
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" id="fontFamilyMenu">
+            <li><a class="dropdown-item" href="#" style="font-family: Arial;" data-value="arial">Arial</a></li>
+            <li><a class="dropdown-item" href="#" style="font-family: Georgia;" data-value="georgia">Georgia</a></li>
+            <li><a class="dropdown-item" href="#" style="font-family: Impact;" data-value="impact">Impact</a></li>
+            <li><a class="dropdown-item" href="#" style="font-family: Tahoma;" data-value="tahoma">Tahoma</a></li>
+            <li><a class="dropdown-item" href="#" style="font-family: 'Times New Roman';" data-value="times-new-roman">Times New Roman</a></li>
+            <li><a class="dropdown-item" href="#" style="font-family: Verdana;" data-value="verdana">Verdana</a></li>
+          </ul>
+        </div>
+        
+        <div class="dropdown">
+          <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fas fa-text-height"></i>
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2" id="fontSizeMenu">
+            <li><a class="dropdown-item" href="#" style="font-size: 12px;" data-value="12px">12px</a></li>
+            <li><a class="dropdown-item" href="#" style="font-size: 14px;" data-value="14px">14px</a></li>
+            <li><a class="dropdown-item" href="#" style="font-size: 16px;" data-value="16px">16px</a></li>
+            <li><a class="dropdown-item" href="#" style="font-size: 18px;" data-value="18px">18px</a></li>
+            <li><a class="dropdown-item" href="#" style="font-size: 20px;" data-value="20px">20px</a></li>
+            <li><a class="dropdown-item" href="#" style="font-size: 22px;" data-value="22px">22px</a></li>
+            <li><a class="dropdown-item" href="#" style="font-size: 25px;" data-value="25px">25px</a></li>
+            <li><a class="dropdown-item" href="#" style="font-size: 30px;" data-value="30px">30px</a></li>
+          </ul>
+        </div>
+
+       <!-- Text color -->
+        <div class="btn-group" role="group">
+            <button class="btn btn-light" id="textColorBtn" ><i class="fas fa-palette"></i></button>
+            
+            <div class="modal" tabindex="-1" id="textColorModal">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title">Choose text color</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="closeTextColorModal"></button>
+                    </div>
+                    <div class="modal-body" id="textColorBlock">
+                      
+                      <div class="oneColor" style="background-color: #fde4cf;"> </div>
+                      <div class="oneColor" style="background-color: #b9fbc0;"> </div>
+                      <div class="oneColor" style="background-color: lightblue;"> </div>
+                      <div class="oneColor" style="background-color: lightgoldenrodyellow;"> </div>
+                      <div class="oneColor" style="background-color: #590d22;"> </div>
+                      <div class="oneColor" style="background-color: violet;"> </div>
+                      <div class="oneColor" style="background-color: #f7ede2;"> </div>
+                      <div class="oneColor" style="background-color: lightpink;"> </div>
+                      <div class="oneColor" style="background-color: lightcyan;"> </div>
+                      <div class="oneColor" style="background-color: #cfbaf0;"> </div>
+                      <div class="oneColor" style="background-color: #8eecf5;"> </div>
+                      <div class="oneColor" style="background-color: #f1c0e8;"> </div>
+                      <div class="oneColor" style="background-color: #d8e2dc;"> </div>
+                      <div class="oneColor" style="background-color: #f28482;"> </div>
+                    </div>
+                   
+                  </div>
+                </div>
+              </div>
+
+<!-- Background Color -->
+
+            <button  class="btn btn-light" id="bgColorBtn"><i class="fas fa-image"></i></button>
+        </div>
+
+
+        <div class="modal" tabindex="-1" id="bgColorModal">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Choose background color or image</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="closeBgColorModal"></button>
+              </div>
+              <div class="modal-body">
+
+
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="bg-colors-tab" data-bs-toggle="tab" data-bs-target="#bgColors" type="button" role="tab" aria-controls="bgColors" aria-selected="true">Colors</button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="bg-images-tab" data-bs-toggle="tab" data-bs-target="#bgImages" type="button" role="tab" aria-controls="bgImages" aria-selected="false">Images</button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="bg-files-tab" data-bs-toggle="tab" data-bs-target="#bgFiles" type="button" role="tab" aria-controls="bgFiles" aria-selected="false">Files</button>
+                  </li>
+                </ul>
+
+                <div class="tab-content" id="myTabContent">
+                  <div class="tab-pane fade show active" id="bgColors" role="tabpanel" aria-labelledby="bg-colors-tab">
+                    <div id="bgColorBlock"> 
+                      <div class="oneBgColor" style="background-color: lightsalmon;"> </div>
+                      <div class="oneBgColor" style="background-color: #b9fbc0;"> </div>
+                      <div class="oneBgColor" style="background-color: lightblue;"> </div>
+                      <div class="oneBgColor" style="background-color: lightgoldenrodyellow;"> </div>
+                      <div class="oneBgColor" style="background-color: #590d22;"> </div>
+                      <div class="oneBgColor" style="background-color: violet;"> </div>
+                      <div class="oneBgColor" style="background-color: #f7ede2;"> </div>
+                      <div class="oneBgColor" style="background-color: lightpink;"> </div>
+                      <div class="oneBgColor" style="background-color: lightcyan;"> </div>
+                      <div class="oneBgColor" style="background-color: #cfbaf0;"> </div>
+                      <div class="oneBgColor" style="background-color: #8eecf5;"> </div>
+                      <div class="oneBgColor" style="background-color: #f1c0e8;"> </div>
+                      <div class="oneBgColor" style="background-color: #d8e2dc;"> </div>
+                      <div class="oneBgColor" style="background-color: #f28482;"> </div>
+                    </div>
+                  </div>
+
+                  <div class="tab-pane fade" id="bgImages" role="tabpanel" aria-labelledby="bg-images-tab">
+                    <div id="bgImageBlock">
+                      <div class="oneBgImage" style="background-image: url(./imgs/bg1.png);"> </div> 
+                      <div class="oneBgImage" style="background-image: url(./imgs/bg2.png);"> </div>
+                      <div class="oneBgImage" style="background-image: url(./imgs/bg3.png);"> </div>
+                      <div class="oneBgImage" style="background-image: url(./imgs/bg4.png);"> </div>
+                      <div class="oneBgImage" style="background-image: url(./imgs/bg5.png);"> </div>
+                      <div class="oneBgImage" style="background-image: url(./imgs/bg6.png);"> </div>
+                    </div>
+                  </div>
+
+
+                  <div class="tab-pane fade" id="bgFiles" role="tabpanel" aria-labelledby="bg-files-tab">
+                    <div> 
+                      <div class="input-group mb-3">
+                        <input type="file" class="form-control" id="bgFileInput" accept="image/png, image/gif, image/jpeg">
+                        <label class="input-group-text" for="bgFileInput">Upload</label>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+      
+              </div>
+          </div>
+        </div>
+      </div>
+        
+
+        <div> <button id="loginBtn" class="btn btn-light"><i class="fas fa-lock"></i></button></div>
+        <div class="modal" tabindex="-1" id="loginModal">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header" style="text-align: center;">
+                <h5 class="modal-title">Sign In</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="closeLoginModal"></button>
+              </div>
+              <div class="modal-body">
+                
+                <form class="row g-3 needs-validation" id="loginForm" novalidate>
+
+                  <div class="col-md-4">
+                    <input type="text" class="form-control" id="validationCustom01" value="" required>
+                    <div class="valid-feedback">
+                      Looks good!
+                    </div>
+                  </div>
+
+                  <div class="col-md-4">
+                    <input type="password" class="form-control" id="validationCustom02" value="" required>
+                    <div class="valid-feedback">
+                      Looks good!
+                    </div>
+                  </div>
+
+                                    
+                  <div class="col-12">
+                    <button class="btn btn-secondary" type="submit" style="width: 100%; margin-left: 0px;" id="signInBtn">Sign in</button>
+                  </div>
+                </form>
+                
+              </div>
+             
+            </div>
+          </div>
+        </div>
+
+    </div>
+
+    <div id="styleEditorArea">
+        <h2>Text text text</h2>
+        <p>Text text text </p>
+        <p>Text text text </p>
+        <p>Text text text </p>
+        <p>Text text text text </p>
+    </div>
+</div>
+
+<div id="textEditor">
+    <div class="headerDiv">
+        <div class="btn-group" role="group">
+            <button type="button" class="btn btn-light" id="saveBtn"><i class="fas fa-save"></i></button>
+
+
+            <!-- CREATE TABLE -->
+            <button type="button" class="btn btn-light" id="tableBtn"><i class="fas fa-table"></i></button>
+
+            <div class="modal" tabindex="-1" id="createTableModal">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title">Create table</h5>
+                      <button type="button" id="closeTableModal" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body" id="tableModalBody">
+                    
+                    <form name="tableForm" id="tableModalForm"  needs-validation>
+                      <div class="mb-3">
+                        <label for="countTR" class="form-label">Count TR:</label>
+                        <input type="text" class="form-control" id="countTR" placeholder="Type here...">
+                      </div>
+
+                      <div class="mb-3">
+                        <label for="countTD" class="form-label">Count TD:</label>
+                        <input type="text" class="form-control" id="countTD" placeholder="Type here...">
+                      </div>
+
+                      <div class="mb-3">
+                        <label for="tdWidth" class="form-label">Width of TD:</label>
+                        <input type="text" class="form-control" id="tdWidth" placeholder="Type here...">
+                      </div>
+
+                      <div class="mb-3">
+                        <label for="tdHeight" class="form-label">Height of TD:</label>
+                        <input type="text" class="form-control" id="tdHeight" placeholder="Type here...">
+                      </div>
+
+                      <div class="mb-3">
+                        <label for="borderWidth" class="form-label">Width of border:</label>
+                        <input type="text" class="form-control" id="borderWidth" placeholder="Type here...">
+                      </div>
+
+                    <div id="tableDropDowns"> 
+                    <div class="mb-3">
+                        <label for="borderStyle" class="form-label">Style of border:</label>
+                        <select class="form-select" id="borderStyle">
+                        <option selected>choose style</option>
+                        <option value="dotted">dotted</option>
+                        <option value="dashed">dashed</option>
+                        <option value="solid">solid</option>
+                        <option value="double">double</option>
+                        <option value="groove">groove</option>
+                        <option value="ridge">ridge</option>
+                        <option value="inset">inset</option>
+                        <option value="outset">outset</option>
+                        </select></div>
+                    
+                    <div class="mb-3">
+                        <label for="borderColor" class="form-label">Color of border:</label>
+                        <select class="form-select" id="borderColor">
+                        <option selected>choose color</option>
+                        <option value="black">black</option>
+                        <option value="red">red</option>
+                        <option value="green">green</option>
+                        <option value="blue">blue</option>
+                        <option value="yellow">yellow</option>
+                        <option value="white">white</option>
+                        <option value="gray">gray</option>
+                        <option value="pink">pink</option>
+                        </select></div>
+                    </div>
+                  </form>
+                    </div>
+
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="tableResetBtn">Reset</button>
+                      <button type="submit" class="btn btn-primary" id="tableSubmitter">Create table</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+
+            <button type="button" class="btn btn-light" id="OlBtn"><i class="fas fa-list-ol"></i></button>
+            <div class="modal" tabindex="-1" id="createOlModal">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Create List</h5>
+                    <button type="button" id="closeOlModal" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body" id="OlModalBody">
+                    
+                    <div class="mb-3">
+                      <label for="countOl" class="form-label">Count li:</label>
+                      <input type="text" class="form-control" id="countOl" placeholder="Type here...">
+                    </div>
+
+                    
+                  <div id="OlDropDowns"> 
+                  <div class="mb-3">
+                      <label for="olMark" class="form-label">Type mark of list:</label>
+                      <select class="form-select" id="olMark">
+                      <option selected>choose ol type mark</option>
+                      <option value="decimal">1</option>
+                      <option value="upper-roman">I</option>
+                      <option value="lower-roman">i</option>
+                      <option value="upper-latin">A</option>
+                      <option value="lower-latin">a</option>
+                    </select></div>
+                  
+                  </div>
+                  </div>
+
+
+
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="olResetBtn">Reset</button>
+                    <button type="submit" class="btn btn-primary" id="olSubmitter">Create list</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            
+            <button type="button" class="btn btn-light" id="UlBtn"><i class="fas fa-list-ul"></i></button>
+            <div class="modal" tabindex="-1" id="createUlModal">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Create List</h5>
+                    <button type="button" id="closeUlModal" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body" id="UlModalBody">
+                    
+                    <div class="mb-3">
+                      <label for="countUl" class="form-label">Count li:</label>
+                      <input type="text" class="form-control" id="countUl" placeholder="Type here...">
+                    </div>
+
+                    
+                  <div id="UlDropDowns"> 
+                  <div class="mb-3">
+                      <label for="ulMark" class="form-label">Type mark of list:</label>
+                      <select class="form-select" id="ulMark">
+                      <option selected>choose ul type mark</option>
+                      <option value="circle">circle</option>
+                      <option value="disc">disc</option>
+                      <option value="square">square</option>
+                    </select></div>
+                  
+                  </div>
+                  </div>
+
+
+
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Reset</button>
+                    <button type="submit" class="btn btn-primary" id="ulSubmitter">Create list</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+        </div>
+    </div>
+    <div id="textEditorArea" contenteditable="true">
+
+    </div>
+</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="./script.js"></script>
+</body>
+</html>
